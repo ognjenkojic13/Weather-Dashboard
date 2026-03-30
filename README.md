@@ -1,3 +1,4 @@
+<img width="1264" height="695" alt="wad" src="https://github.com/user-attachments/assets/b2db503f-d3d2-4d71-a0b7-d372a7e20fb0" />
 # WeatherScope
 
 A responsive weather dashboard built with React and Vite. Search any city and get current conditions, an hourly strip, and a 7-day temperature graph — all with dynamic backgrounds that change based on weather and time of day.
