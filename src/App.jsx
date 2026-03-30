@@ -80,7 +80,7 @@ export default function App() {
       {!data && (
         <div className="splash-screen">
           <div className="splash-inner">
-            <h1 className="splash-title">🌍 WeatherScope</h1>
+            <h1 className="splash-title">WeatherApp</h1>
             <p className="splash-sub">Enter a city to see the weather</p>
             <SearchBar onSearch={search} recentSearches={recentSearches} loading={loading} />
             {loading && <Loading />}

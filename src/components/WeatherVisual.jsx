@@ -72,7 +72,7 @@ function ThunderVisual() {
         <div className="cloud-bump cloud-bump-2" />
         <div className="cloud-bump cloud-bump-3" />
       </div>
-      <div className="visual-lightning">⚡</div>
+      <div className="visual-lightning"></div>
       <div className="visual-rain-drops">
         {Array.from({ length: 8 }).map((_, i) => (
           <div key={i} className="visual-drop" style={{ left: `${5 + i * 12}%`, animationDelay: `${(i * 0.15).toFixed(2)}s` }} />
@@ -93,7 +93,7 @@ function SnowVisual() {
       </div>
       <div className="visual-snowflakes">
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="visual-snowflake" style={{ left: `${5 + i * 12}%`, animationDelay: `${(i * 0.22).toFixed(2)}s` }}>❄</div>
+          <div key={i} className="visual-snowflake" style={{ left: `${5 + i * 12}%`, animationDelay: `${(i * 0.22).toFixed(2)}s` }}></div>
         ))}
       </div>
     </div>

@@ -72,7 +72,7 @@ export default function SearchBar({ onSearch, recentSearches = [], loading }) {
                 inputRef.current?.focus()
               }}
             >
-              ✕
+              &times;
             </button>
           )}
         </div>

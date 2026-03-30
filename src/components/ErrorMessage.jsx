@@ -5,7 +5,7 @@ export default function ErrorMessage({ message, onDismiss }) {
       <p className="error-text">{message}</p>
       {onDismiss && (
         <button className="error-dismiss" onClick={onDismiss} aria-label="Dismiss error">
-          ✕
+          &times;
         </button>
       )}
     </div>
