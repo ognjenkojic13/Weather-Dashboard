@@ -116,13 +116,20 @@ export async function fetchWeather(cityName) {
   return { location, weather: response.data }
 }
 
-export async function fetchCityPhoto(cityName) {
+const PEXELS_KEY = 'CmvJ03wbLUuvcR00nJ2V3uhX8X3TJvD8GciP0kjjsADCap1MUINAR2QK'
+
+export async function fetchCityVideo(cityName) {
   try {
-    const response = await axios.get(
-      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(cityName)}`,
-      { headers: { Accept: 'application/json' } }
-    )
-    return response.data?.originalimage?.source || response.data?.thumbnail?.source || null
+    const response = await axios.get('https://api.pexels.com/videos/search', {
+      headers: { Authorization: PEXELS_KEY },
+      params: { query: `${cityName} city`, per_page: 5, orientation: 'landscape' },
+    })
+    const videos = response.data?.videos
+    if (!videos || videos.length === 0) return null
+    const video = videos[0]
+    const sorted = [...video.video_files].sort((a, b) => (b.width || 0) - (a.width || 0))
+    const file = sorted.find(f => f.height === 720) || sorted.find(f => f.quality === 'hd') || sorted[0]
+    return file?.link || null
   } catch {
     return null
   }

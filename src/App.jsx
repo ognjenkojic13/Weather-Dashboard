@@ -4,12 +4,12 @@ import SearchBar from './components/SearchBar'
 import Loading from './components/Loading'
 import ErrorMessage from './components/ErrorMessage'
 import WeatherBackground from './components/WeatherBackground'
-import { fetchWeather, fetchCityPhoto, getWeatherCondition } from './services/weatherApi'
+import { fetchWeather, fetchCityVideo, getWeatherCondition } from './services/weatherApi'
 import { getLocalStorage, setLocalStorage } from './utils/helpers'
 
 export default function App() {
   const [data, setData] = useState(null)
-  const [cityPhoto, setCityPhoto] = useState(null)
+  const [cityVideo, setCityVideo] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [unit, setUnit] = useState('C')
@@ -21,7 +21,7 @@ export default function App() {
     if (!city?.trim()) { setError('Please enter a city name.'); return }
     setLoading(true)
     setError(null)
-    setCityPhoto(null)
+    setCityVideo(null)
     try {
       const result = await fetchWeather(city)
       setData(result)
@@ -30,7 +30,7 @@ export default function App() {
       setRecentSearches(newRecent)
       setLocalStorage('recentSearches', newRecent)
       setLocalStorage('lastCity', name)
-      fetchCityPhoto(name).then(setCityPhoto)
+      fetchCityVideo(name).then(setCityVideo)
     } catch (err) {
       if (err.message === 'EMPTY_INPUT')      setError('Please enter a city name.')
       else if (err.message === 'CITY_NOT_FOUND') setError(`City "${city}" not found.`)
@@ -43,8 +43,8 @@ export default function App() {
   }, [recentSearches])
 
   useEffect(() => {
-    const last = getLocalStorage('lastCity', null)
-    if (last) search(last)
+    const last = getLocalStorage('lastCity', 'Belgrade')
+    search(last)
   }, [])
 
   const weatherCode = data?.weather?.current?.weather_code
@@ -72,7 +72,7 @@ export default function App() {
       <WeatherBackground
         condition={condition}
         isDay={isDay}
-        photoUrl={cityPhoto}
+        videoUrl={cityVideo}
         precipitation={precipitation}
         snowfall={snowfall}
       />

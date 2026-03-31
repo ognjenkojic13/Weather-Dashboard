@@ -10,7 +10,7 @@ const PARTICLES = {
   fog: 0,
 }
 
-export default function WeatherBackground({ condition, isDay, photoUrl, precipitation, snowfall }) {
+export default function WeatherBackground({ condition, isDay, videoUrl, precipitation, snowfall }) {
   const isRaining = (condition === 'rain' || condition === 'drizzle' || condition === 'thunderstorm') && precipitation > 0
   const isSnowing = condition === 'snow' && snowfall > 0
   const canvasRef = useRef(null)
@@ -163,10 +163,15 @@ export default function WeatherBackground({ condition, isDay, photoUrl, precipit
 
   return (
     <div className={`weather-bg ${bgClass}`}>
-      {photoUrl && (
-        <div
-          className="city-photo"
-          style={{ backgroundImage: `url(${photoUrl})` }}
+      {videoUrl && (
+        <video
+          className="city-video"
+          src={videoUrl}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
       )}
       <div className="bg-overlay" />
