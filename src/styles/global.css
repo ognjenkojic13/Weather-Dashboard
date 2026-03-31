@@ -204,11 +204,11 @@ body {
 }
 
 .dash-left {
-  padding: clamp(12px, 2.5vh, 32px) 28px clamp(16px, 2.5vh, 28px) 32px;
+  padding: 0 28px 20px 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 20px;
   border-right: 1px solid var(--line);
   overflow: hidden;
 }
@@ -290,7 +290,7 @@ body {
 }
 
 .dash-right {
-  padding: clamp(12px, 2.5vh, 32px) 32px clamp(16px, 2.5vh, 28px) 28px;
+  padding: 0 32px 20px 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
