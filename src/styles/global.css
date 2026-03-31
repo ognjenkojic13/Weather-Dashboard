@@ -7,7 +7,7 @@
   --line:   rgba(255,255,255,0.10);
 }
 
-html { font-size: 68%; }
+html { font-size: 68%; zoom: 0.85; }
 html, body { height: 100%; overflow: hidden; }
 
 body {
