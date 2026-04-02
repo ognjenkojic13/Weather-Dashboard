@@ -3,6 +3,8 @@
 
 A responsive weather dashboard built with React and Vite. Search any city and get current conditions, an hourly strip, and a 7-day temperature graph — all with dynamic backgrounds that change based on weather and time of day.
 
+Live Demo - https://ognjenkojic13.github.io/Weather-Dashboard/
+
 ## Features
 
 - City search with recent searches (up to 5, persisted in localStorage)
